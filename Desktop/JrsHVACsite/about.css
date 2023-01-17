@@ -1,0 +1,640 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Tajawal:wght@200&display=swap');
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+  --background: #0B147E;
+  --font1: 'Roboto', sans-serif;
+  --font2: 'Comfortaa', cursive;
+  --purple: rgba(11, 20, 126, 0.5);
+  --nav-load-time: 300ms;
+  --list-load-time: 600ms;
+  --article-load-delay: calc(var(--nav-load-time) + var(--list-load-time))
+}
+
+.a {
+  cursor: pointer;
+}
+
+
+h1 {
+  font-family: var(--font1);
+  text-align: center;
+}
+
+.about-sec {
+margin: 5rem;
+
+}
+.section-1 p {
+  font-family: 'Comfortaa', cursive;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  max-width: 65ch;
+  line-height: 1.5;
+}
+
+h2 {
+  font-size: 25px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.logo {
+  display: relative;
+}
+
+.navlist {
+  display: flex;
+  text-align: center;
+  margin-right: 50px;
+  padding: 0;
+  list-style-type: none;
+  width: 750px;
+}
+
+.navlist li a {
+  font-size: 20px;
+  display: inline-block;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin-left: 3em;
+}
+
+.navlist li :hover {
+  color: var(--purple);
+}
+
+input, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input .form-control {
+  width: 100%;
+  background-color: none;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  border-color: black;
+}
+
+input .btn-send {
+  background: blue;
+}
+
+input :hover {
+  border: 1px;
+}
+
+input .btn {
+  background-color: var(--background);
+  color: black;
+}
+
+input .btn:hover {
+  font: black;
+  opacity: none;
+}
+
+.container {
+  width: 474px;
+  font-family: var(--font1);
+  position: center;
+  margin-left: 30px;
+}
+
+.btn:hover {
+  opacity: 0.2;
+  color: black;
+}
+
+.btn {
+  background-color: var(--background);
+  color: white;
+}
+
+.section-1 {
+  display: grid;
+  place-items: center;
+}
+
+.detail {}
+
+ul.list {
+  background: var(--purple);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 2%;
+  width: 375px;
+  margin-top: 0;
+  animation-name: nav-link-load;
+  animation-duration: var(--list-load-time);
+  animation-timing-function: ease-in;
+  animation-delay: var(--nav-load-time);
+  animation-fill-mode: forwards;
+  transform: scale(0);
+  transform: translateX(-1000%);
+}
+
+@keyframes nav-link-load {
+  0% {
+    transform: scale(0);
+  }
+
+  90% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes nav-first-link-load {
+  0% {
+    transform: translateX(-1000%);
+  }
+
+  90% {
+    transform: translateX(50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes nav-last-link-load {
+  0% {
+    transform: translateX(1000%);
+  }
+
+  90% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes article-load {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+footer {
+  background: black;
+  height: 250px;
+  color: white;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+#menuToggle {
+  position: absolute;
+  display: block;
+  display: none;
+  left: 85%;
+}
+
+#menuToggle a {
+  text-decoration: none;
+  color: #232323;
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover {
+  color: tomato;
+}
+
+#menuToggle input {
+  display: block;
+  width: 30px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0;
+  /* hide this */
+  z-index: 2;
+  /* and place it over the hamburger */
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: black;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+    opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+/*
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked~span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked~span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked~span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu {
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  height: 200px;
+  width: 145px;
+  right: 375px;
+  overflow-x: hidden;
+  margin-top: 44px;
+  padding: 35px;
+  z-index: 999;
+  background: yellow;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  transform-origin: 0% 0%;
+  transform: translate(-175%, 0);
+  transition: transform 0.8s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  opacity: 0.9;
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked~ul {
+  transform: none;
+}
+
+.list {
+  font-family: var(--font1);
+}
+
+.jobgrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  background-color: black ;
+  border-radius: 20px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 0.5px solid rgba(0, 0, 0, 0.8);
+  font-size: 30px;
+  text-align: center;
+}
+
+.text1 {
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+  height: 100px;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+
+/* header animation */
+@keyframes nav-load {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* make keyframes that tell the start state and the end state of our object */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  /* make things invisible upon start */
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-duration: 1.4s;
+}
+
+.fade-in.delayed {
+  animation-delay: 1.4s;
+}
+
+.fade-in.delayed1 {
+  animation-delay: 1.9s;
+}
+
+.fade-in.delayed2 {
+  animation-delay: 2.4s;
+}
+
+.fade-in.delayed3 {
+  animation-delay: 2.9s;
+}
+
+.fade-in.delayed4 {
+  animation-delay: 3.4s;
+}
+
+.fade-in.delayed5 {
+  animation-delay: 3.9s;
+}
+
+.fade-in.delayed6 {
+  animation-delay: 4.4s;
+}
+
+.fade-in.delayed7 {
+  animation-delay: 4.9s;
+}
+
+.fade-in.delayed8 {
+  animation-delay: 5.4s;
+}
+
+.fade-in.delayed9 {
+  animation-delay: 5.9s;
+}
+
+.fade-in.delayed10 {
+  animation-delay: 6.4s;
+}
+
+.fade-in.delayed11 {
+  animation-delay: 6.9s;
+}
+
+.fade-in.delayed12 {
+  animation-delay: 7.4s;
+}
+
+.fade-in.delayed13 {
+  animation-delay: 7.9s;
+}
+
+.fade-in.delayed14 {
+  animation-delay: 8.4s;
+}
+
+.fade-in.delayed15 {
+  animation-delay: 8.9s;
+}
+
+.fade-in.delayed16 {
+  animation-delay: 9.4s;
+}
+
+/*----------The image Modal--------*/
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {
+  opacity: 0.7;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9);
+  /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  height: 600px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0)
+  }
+
+  to {
+    transform: scale(1)
+  }
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
+}
+
+/* side menu styles */
+@media screen and (max-width: 765px) {
+  header {
+    text-align: center;
+  }
+
+  .section-1 p {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .section-2 {
+    margin-left: 0px;
+    margin-right: 0px;
+    display: grid;
+    place-items: center;
+  }
+
+  .jobgrid {
+    display: grid;
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+   
+    border-radius: 20px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .text1 {
+    font-size: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    height: 225px;
+    grid-column-start: 1;
+
+
+
+  }
+
+  .list {
+    font-size: 20px;
+    font-family: var(--font1);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .nav-ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #menuToggle {
+    display: contents;
+    position: absolute;
+    display: block;
+    right: 10%;
+  }
+
+  .nav-ul li a {
+    padding: 10px;
+  }
+}
